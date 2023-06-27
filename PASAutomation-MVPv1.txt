@@ -1,0 +1,33 @@
+title Accelerator: PAS Automation - MVP
+
+participant User
+participant User compute
+participant ProvEngine
+participant New EC2 Instance
+participant CyberArk Identity
+participant CyberArk PrivCloud
+participant CyberArk Conjur Cloud
+
+User->ProvEngine:Submit request
+ProvEngin->New EC2 Instance
+
+
+New EC2 Instance->(3)Double click to edit text
+
+ProvEngine->New EC2 Instance:Provision
+note right of New EC2 Instance:v1: provision w/ hardcoded creds\nv2: pull creds from vault
+ProvEngine<-New EC2 Instance:Get password
+ProvEngine->CyberArk Conjur Cloud:auth-iam
+ProvEngine<-CyberArk Conjur Cloud:Conjur Token
+ProvEngine<-CyberArk Conjur Cloud:Retrieve PCloud/Conjur Admin password
+ProvEngine->CyberArk Identity:Oauth2 conf client authn
+ProvEngine<-CyberArk Identity:PCloud token
+ProvEngine->CyberArk PrivCloud
+ProvEngine->CyberArk Identity:check if requesting user has access\nto requested safe
+ProvEngine->CyberArk PrivCloud:Create Windows account in existing safe
+ProvEngine->CyberArk Conjur Cloud
+ProvEngine<-CyberArk Conjur Cloud
+User<-ProvEngine:confirmation
+User compute->CyberArk Conjur Cloud
+User compute<-CyberArk Conjur Cloud
+User compute->New EC2 Instance:access EC2 instance w/ DPA or whatever
