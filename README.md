@@ -1,12 +1,12 @@
 # Accelerator PAS Automation
 ==========================
 
-##MVP Goals:
+## MVP Goals:
 - Demonstrate best-practices for workflows around PrivCloud & Conjur Cloud
 - Leverage Flows for automation
 - Leverage Conjur Cloud to eliminate secret zero
 
-###Proposed workflow:
+### Proposed workflow:
 - Onboarding Lambda has AWS role for EC2 admin
 - Creates new EC2 instance w/ SSH-key
 - Uses IAM role & Conjur authn-iam to retrieve PCloud admin password
