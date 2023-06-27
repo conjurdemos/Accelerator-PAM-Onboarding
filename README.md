@@ -3,7 +3,6 @@
 
 ## MVP Goals:
 - Demonstrate best-practices for end-to-end workflows around PrivCloud & Conjur Cloud
-- Leverage Flows for automation
 - Leverage Conjur Cloud to eliminate secret zero
 
 ### Proposed workflow:
