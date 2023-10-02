@@ -1,0 +1,17 @@
+[awsprovider]
+
+# REQUIRED
+# Set this to your Target Region where you will provision your EC2 instance
+region = "us-west-2"
+
+# FOR Demo "Scenario 1 - Hard Code Credentials"
+# -- Fill-in the AWS Key/Secret fields here
+#
+# FOR Demo "Scenario 2 - Conjur AWS Authenticator"
+# -- Leave these fields empty strings 
+#    (in other words, leave these empty if using Conjur to fetch
+#    the AWS Provider creds)
+
+# For more details, see README.md: "-Required- AWS Account And Demo Host Setup"
+accesskey = ""
+accesssecret = ""

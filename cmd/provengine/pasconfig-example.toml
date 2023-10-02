@@ -1,0 +1,10 @@
+[pasvault]
+
+# Cloud Identity Portal (ID Tenant where the user is managed)
+idtenanturl = "https://IDENTITY_TENANT_ID.id.cyberark.cloud"
+
+# Safe owner/user must enter PAS Vault user/pass in Toolshed UI
+
+# Privilege Cloud (Where the Vault-safe is located)
+pcloudurl = "https://example-demo-toolshed.privilegecloud.cyberark.cloud"
+safename = "toolshed-safe1"

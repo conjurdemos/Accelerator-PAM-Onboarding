@@ -1,0 +1,36 @@
+[conjur]
+apiurl              = "https://conjurserver.example.com/api"
+account             = "conjur"
+
+# Conjur Cloud -- Resources -> Workloads (or Host) ID
+# Find the workload (or host) ID for your resource.
+# Prepend the string literal "host/" to form the identity.
+#
+# Example: For host/workload ID "data/toolshed/12345678/toolshed"
+#          The identity value will be "host/data/toolshed/12345678/toolshed"
+identity            = ""
+
+# Identifier for the Conjur AWS authenticator that is setup for this demo
+authenticator       = "authn-iam/APPNAME"
+
+# Conjur Region -- used for authn-iam (Region where Conjur is running)
+awsregion           = "us-east-1"
+
+# AWS key/secret used to authenticate to Conjur for authn-iam 
+#
+# If running this demo from an EC2 instance, the role assigned 
+# to the EC2 instance will be used.
+#  OR
+# If running from linux/mac, then the credentials from your 
+# AWS User should be placed here.  This user will need permissions
+# to assume the role in the `assumerolearn` setting.
+awsaccesskey        = ""
+awsaccesssecret     = ""
+
+# REQUIRED: Assume role arn is the role that was used when setting up 
+#           the Conjur AWS authenticator
+awsassumerolearn    = "arn:aws:iam::12345678:role/toolshed"
+
+# Conjur path to AWS key/secret used to provision resources
+awsprovideraccesskeypath    = "data/vault/PATH/TO/THE/AWSProviderAccessKey"
+awsprovideraccesssecretpath = "data/vault/PATH/TO/THE/AWSProviderAccessSecret"

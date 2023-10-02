@@ -1,0 +1,121 @@
+<html>
+
+<head>
+  <title>Toolshed</title>
+  {{.Head}}
+  <style>
+    .formbuilder-required {
+      color: red;
+      font-weight: bold;
+    }
+
+    .message {
+      background: lightgrey;
+    }
+
+    .form-header {
+      background: powderblue;
+    }
+
+    .conjur-header {
+      background: powderblue;
+    }
+
+    .aws-provisioner-header {
+      background: powderblue;
+    }
+
+    .pas-vault-header {
+      background: powderblue;
+    }
+
+    .important-note {
+      background: antiquewhite;
+      color: red;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1 access="false" id="control-9096361">Toolshed - Simulated ITSM App</h1>
+  </div>
+  <form action="/" method="POST">
+    <div class="rendered-form">
+      <div class="form-header">
+        Fields marked with a <span class="formbuilder-required">*</span> are required.
+      </div>
+      <br />
+      <div class="formbuilder-text form-group field-tag-name">
+        <label for="tag-name" class="formbuilder-text-label">
+          <span class="formbuilder-required">*</span> AWS TAG Name
+        </label><br />
+        <input type="text" size="80" class="form-control" name="tag-name" access="false"
+          value="{{if .Fields.TagName}}{{.Fields.TagName}}{{else}}Name{{end}}" id="tag-name" required="required"
+          aria-required="true">
+      </div>
+      <div class="formbuilder-text form-group field-tag-value">
+        <label for="tag-value" class="formbuilder-text-label">
+          <span class="formbuilder-required">*</span> AWS TAG Value
+        </label><br />
+        <input type="text" size="80" class="form-control" name="tag-value" access="false"
+          value="{{if .Fields.TagValue}}{{.Fields.TagValue}}{{else}}DEMO Instance{{end}}" id="tag-value"
+          required="required" aria-required="true">
+      </div>
+      <div class="formbuilder-text form-group field-tag-name">
+        <label for="tag-name" class="formbuilder-text-label">
+          <span class="formbuilder-required">*</span> AWS New Keypair Name
+        </label><br />
+        <input type="text" size="80" class="form-control" name="keypair-name" access="false"
+          value="{{if .Fields.KeyPair}}{{.Fields.KeyPair}}{{end}}" id="keypair-name" required="required"
+          aria-required="true">
+      </div>
+      <div class="formbuilder-text form-group field-ami-name">
+        <label for="ami-name" class="formbuilder-text-label">
+          <span class="formbuilder-required">*</span>
+          AMI Name (Example: Ubuntu AMI name is ami-03f65b8614a860c29)
+        </label><br />
+        <input type="text" size="80" class="form-control" name="ami-name" access="false"
+          value="{{if .Fields.AMI}}{{.Fields.AMI}}{{else}}ami-03f65b8614a860c29{{end}}" id="ami-name"
+          title="Example: Ubuntu AMI name is ami-03f65b8614a860c29" required="required" aria-required="true">
+      </div>
+
+      <div>
+        <hr />
+      </div>
+
+      <div class="formbuilder-text form-group field-ami-name">
+        <label for="ami-name" class="formbuilder-text-label">
+          <span class="formbuilder-required">*</span>
+          PAS User Name
+        </label><br />
+        <input type="text" size="80" class="form-control" name="pas-user" access="false"
+          value="{{if .Fields.PASUser}}{{.Fields.PASUser}}{{end}}" id="pas-user" title="Example: PAS login user name"
+          required="required" aria-required="true">
+      </div>
+      <div class="formbuilder-text form-group field-ami-name">
+        <label for="ami-name" class="formbuilder-text-label">
+          <span class="formbuilder-required">*</span>
+          PAS User Password
+        </label><br />
+        <input type="password" size="80" class="form-control" name="pas-pass" access="false" value="" id="pas-pass"
+          title="Example: PAS login password" required="required" aria-required="true">
+      </div>
+
+      <div>
+        <hr />
+      </div>
+
+    </div>
+    <input type="submit" name="submit" value="Submit">
+  </form>
+  {{if .Message}}
+  <div class="message">
+    <pre>{{.Message}}
+    </pre>
+  </div>
+  {{end}}
+</body>
+
+</html>
