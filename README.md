@@ -4,7 +4,7 @@
 
 <!--
 Author:   David Hisel <david.hisel@cyberark.com>
-Updated:  <2023-10-02 11:08:39 david.hisel>
+Updated:  <2023-10-02 16:31:19 david.hisel>
 -->
 
 **NOTE: "IT Toolshed" is intended as a front-end for DEMO purposes only.**
@@ -26,7 +26,9 @@ To use this solution accelerator, you will need:
 * CyberArk PAS Vault created and ready to go
   * Safe to store provisioner credentials
   * Safe to store the newly created credentials
-* CyberArk Conjur Cloud with PAS Vault sync enabled
+* CyberArk Conjur Cloud account
+  * PAS Vault sync enabled
+  * AWS Authenticator configured and enabled
 * Access to a Demo Host -- Optimal demo experience, run this from an EC2 instance
 * GO lang compiler, v1.21
 * GNU Make, v3.81
@@ -52,6 +54,12 @@ To use this solution accelerator, you will need:
    * Create Access Key and Secret for this user
    * Store these credentials in your PAS Vault safe
 2. Install Conjur IAM Authenticator
+   * See the `./etc` directory for example setup.
+   * See the `load-policies.sh` script for an example of how to load the policies.
+   * Conjur CLI install instructions can be found on the [CyberArk Conjur CLI page](https://docs.cyberark.com/conjur-enterprise/13.0/en/Content/Developer/CLI/cli-setup.htm).
+   * (Optional) `./etc/iam-check.py` script can help with
+     troubleshooting the Conjur AWS Authenticator configuration.
+
 3. Enable PAS Vault sync
 
 ## Demo Setup and Usage

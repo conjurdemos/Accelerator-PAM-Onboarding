@@ -1,0 +1,24 @@
+# authn-iam-toolshed.yml
+
+# Updated: <2023-09-26 12:27:45 david.hisel>
+
+## Run these commands to load and enable the policy
+# conjur policy load -f authn-iam-toolshed.yml -b conjur/authn-iam
+# conjur authenticator enable --id authn-iam/toolshed
+
+# Login to Conjur Cloud -> Authenticators -> "toolshed" shows up as an authenticator
+
+- !policy
+  id: toolshed
+  annotations:
+    Description: Toolshed demo AWS IAM authenticator
+  body:
+  - !webservice
+  
+  # Group of hosts that can authenticate using this IAM Authenticator
+  - !group clients
+ 
+  - !permit
+    role: !group clients
+    privilege: [ read, authenticate ]
+    resource: !webservice
