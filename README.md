@@ -303,7 +303,7 @@ json Legend {
         See the License for the specific language governing permissions and
         limitations under the License.
         
-        For the full license text see [`LICENSE`](LICENSE).
+For the full license text see [`LICENSE`](LICENSE).
 
 ## Contributing
 
